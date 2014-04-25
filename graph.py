@@ -96,7 +96,6 @@ class ListGraph:
     def update_edges(self,ID,new_es):
         node = self.list[ID]
         i,p,e = node
-        new_es.sort()
         self.list[ID] = i,p,new_es
 
     # For test purposes. Will remove to maintain abstraction
