@@ -13,4 +13,6 @@ from graph import ListGraph
 
 graph = ListGraph()
 
-def dijkstra(graph, initial):
+def dijkstra(graph, source, destination):
+    unvisited = []
+    
