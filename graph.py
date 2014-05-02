@@ -67,7 +67,7 @@ class ListGraph:
         # If not connected, throws an exception. This requires various
         # stages of unpacking
         i1,p1,e1,n1 = self.list[node1]
-        i2,p2,e2,n1 = self.list[node2]
+        i2,p2,e2,n2 = self.list[node2]
         x1,y1 = p1
         x2,y2 = p2
         # Check to see if node1 points to node2
@@ -102,6 +102,3 @@ class ListGraph:
     # barrier
     def r(self,ID):
         return self.list[ID]
-
-y = ListGraph()
-y.new_node((0,0),[],"test")
