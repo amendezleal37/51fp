@@ -3,9 +3,9 @@
 # Author: Zahra Mahmood
 
 from graph import ListGraph
-import yardgraph
+import yardgraphfull
 
-map = yardgraph.graph
+map = yardgraphfull.graph
 
 # template for node is (ID, pos, [edges])
 nodes_list = map.list
