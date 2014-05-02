@@ -42,8 +42,12 @@ unvisited.remove(start)
 
 current = start
 
-for neighbor in map.list[current][2]:
-    new_dist = dist[current] + map.distance(current, neighbor)
-    if (dist[neighbor]==-1) or (new_dist < dist[neighbor]):
-        dist[neighbor] = new_dist
-        prev[neighbor] = current
+while (end in unvisited):
+    for neighbor in map.list[current][2]:
+        if (neighbor in unvisited):
+            new_dist = dist[current] + map.distance(current, neighbor)
+            if (dist[neighbor]==-1) or (new_dist < dist[neighbor]):
+                dist[neighbor] = new_dist
+                prev[neighbor] = current
+    unvisited.remove(current)
+    current = map.list[current][2][0]
