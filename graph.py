@@ -102,5 +102,6 @@ class ListGraph:
     # barrier
     def r(self,ID):
         return self.list[ID]
-        
+
 y = ListGraph()
+y.new_node((0,0),[])
