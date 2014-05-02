@@ -48,9 +48,9 @@ class ListGraph:
         self.ID = 0
         self.list = []
     
-    def new_node(self,pos,edges):
+    def new_node(self,pos,edges,name):
         # Creates a new node with the next ID
-        list.append(self.list,(self.ID,pos,edges))
+        list.append(self.list,(self.ID,pos,edges,name))
         self.ID += 1
     
     # Creates a new node with desired position, but also is pointed
@@ -59,15 +59,15 @@ class ListGraph:
             
     
     def edges(self,ID):
-        x,y,z = self.list[ID]
+        x,y,z,n = self.list[ID]
         return z
     
     def distance(self,node1,node2):
         # Distance from node1 to node2 as longs as they're connected.
         # If not connected, throws an exception. This requires various
         # stages of unpacking
-        i1,p1,e1 = self.list[node1]
-        i2,p2,e2 = self.list[node2]
+        i1,p1,e1,n1 = self.list[node1]
+        i2,p2,e2,n1 = self.list[node2]
         x1,y1 = p1
         x2,y2 = p2
         # Check to see if node1 points to node2
@@ -81,7 +81,7 @@ class ListGraph:
     # Add a single edge to a node
     def add_edge(self,ID,edge):
         node = self.list[ID]
-        i,p,e = node
+        i,p,e,n = node
         # Only adds if not already in list
         if not(member(edge,e)):
             e.append(edge)
@@ -104,4 +104,4 @@ class ListGraph:
         return self.list[ID]
 
 y = ListGraph()
-y.new_node((0,0),[])
+y.new_node((0,0),[],"test")
