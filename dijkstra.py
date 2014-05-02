@@ -13,21 +13,37 @@ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 # from graph import ListGraph
 # map = ListGraph()
-import yardgraph
 
+# map we are working with:
+import yardgraph
 map = yardgraph.graph
 
 # start and end are the id's of the two nodes
+# can be changed by the user
 start = 0
 end = 1
 
 #def dijkstra(start, end):
   
-# first make unvisited include all nodes
+# initializes unvisited to include all nodes
 unvisited = range(map.ID)
 
-# initialize list of known shortest distances from start
-dist = [None] * map.ID
+# initializes list of known shortest distances from start
+dist = [-1] * map.ID
+
+# initializes the list of previous nodes for each node to keep track of paths
+prev = [-1] * map.ID
     
 # start node has 0 distance to itself
-# dist[end] = 0
+dist[start] = 0
+
+# start node removed from unvisited
+unvisited.remove(start)
+
+current = start
+
+for neighbor in map.list[current][2]:
+    new_dist = dist[current] + map.distance(current, neighbor)
+    if (dist[neighbor]==-1) or (new_dist < dist[neighbor]):
+        dist[neighbor] = new_dist
+        prev[neighbor] = current
