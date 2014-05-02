@@ -15,6 +15,7 @@ position = [x[1] for x in nodes_list]
 edges = [x[2] for x in nodes_list]
 
 edge_list = []
+distance = []
 for u in vertices: 
 	for v in edges[u]:
 		edge_list.append((u,v))
@@ -37,6 +38,12 @@ def BellmanFord(vertices, edges, vertex_source):
 				weight[v] = weight[u] + distance
 				predecessor[v] = u
 
+	for edge, (u,v) in enumerate(edges):
+		distance = map.distance(u,v)
+		if weight[u] + distance < weight[v]:
+			return "There is a negative-weight cycle"
+
+
 	return predecessor
 
 def shortest_path(source, sink):
@@ -49,6 +56,6 @@ def shortest_path(source, sink):
 	path.reverse()
 	print path
 
-shortest_path(3, 5)
+shortest_path(0, 4)
 
 
