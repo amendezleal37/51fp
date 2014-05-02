@@ -54,3 +54,12 @@ def dijkstra(start):
                     current = i
     return prev
 
+def dijkstra_path(start, end):
+    prev_list = dijkstra(start)
+    path = []
+    while end != start: 
+		path.append(end)
+		end = prev_list[end]
+    path.append(start)
+    path.reverse()
+    print path
