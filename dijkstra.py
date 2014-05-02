@@ -2,7 +2,7 @@
 """
 Created on Wed Apr 23 16:33:43 2014
 
-@author: Oscar
+@author: Oscar Xia
 
 Dijkstra's Algorithm:
 
@@ -16,39 +16,50 @@ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 
 # map we are working with:
 import yardgraph
-map = yardgraph.graph
+yardmap = yardgraph.graph
 
-# start and end are the id's of the two nodes
-# can be changed by the user
-start = 0
-end = 1
-
-#def dijkstra(start, end):
-  
-# initializes unvisited to include all nodes
-unvisited = range(map.ID)
-
-# initializes list of known shortest distances from start
-dist = [-1] * map.ID
-
-# initializes the list of previous nodes for each node to keep track of paths
-prev = [-1] * map.ID
+def dijkstra(start):  
+    # initializes unvisited to include all nodes
+    unvisited = range(yardmap.ID)
     
-# start node has 0 distance to itself
-dist[start] = 0
+    # initializes list of known shortest distances from start
+    dist = [float('inf')] * yardmap.ID
+    
+    # initializes the list of previous nodes for each node to keep track of paths
+    prev = ['null'] * yardmap.ID
+        
+    # start node has 0 distance to itself
+    dist[start] = 0
+    
+    # start node removed from unvisited
+    unvisited.remove(start)
+    
+    current = start
+    
+    while len(unvisited) != 0:
+        for neighbor in yardmap.list[current][2]:
+            if (neighbor in unvisited):
+                new_dist = dist[current] + yardmap.distance(current, neighbor)
+                if (new_dist < dist[neighbor]):
+                    dist[neighbor] = new_dist
+                    prev[neighbor] = current
+        
+        if (current in unvisited):
+            unvisited.remove(current)
+        
+        if len(unvisited) != 0:
+            current = unvisited[0]
+            for i in unvisited:
+                if dist[i] < dist[current]:
+                    current = i
+    return prev
 
-# start node removed from unvisited
-unvisited.remove(start)
-
-current = start
-
-while (end in unvisited):
-    for neighbor in map.list[current][2]:
-        if (neighbor in unvisited):
-            new_dist = dist[current] + map.distance(current, neighbor)
-            if (dist[neighbor]==-1) or (new_dist < dist[neighbor]):
-                dist[neighbor] = new_dist
-                prev[neighbor] = current
-    if (current in unvisited):
-        unvisited.remove(current)
-    current = map.list[current][2][0]
+def dijkstra_path(start, end):
+    prev_list = dijkstra(start)
+    path = []
+    while end != start: 
+		path.append(end)
+		end = prev_list[end]
+    path.append(start)
+    path.reverse()
+    print path
