@@ -3,12 +3,12 @@
 # Author: Zahra Mahmood
 
 from graph import ListGraph
-import yardgraph
+import yardgraphfull
 
-map = yardgraph.graph
+yard_map = yardgraphfull.graph
 
 # template for node is (ID, pos, [edges])
-nodes_list = map.list
+nodes_list = yard_map.list
 
 vertices = [x[0] for x in nodes_list]
 position = [x[1] for x in nodes_list]
@@ -31,15 +31,17 @@ def BellmanFord(vertices, edges, vertex_source):
 			weight.append(float('inf'))
 			predecessor.append('null')
 
+
 	for i in xrange(len(vertices)):
 		for edge, (u,v) in enumerate(edges):
-			distance = map.distance(u,v)
+
+			distance = yard_map.distance(u,v)
 			if weight[u] + distance < weight[v]:
 				weight[v] = weight[u] + distance
 				predecessor[v] = u
 
 	for edge, (u,v) in enumerate(edges):
-		distance = map.distance(u,v)
+		distance = yard_map.distance(u,v)
 		if weight[u] + distance < weight[v]:
 			return "There is a negative-weight cycle"
 
@@ -56,6 +58,5 @@ def shortest_path(source, sink):
 	path.reverse()
 	print path
 
-shortest_path(0, 4)
 
-
+shortest_path(0, 21)
