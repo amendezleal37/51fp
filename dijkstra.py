@@ -36,6 +36,7 @@ def dijkstra(start):
     
     current = start
     
+    # while there are still unvisited nodes in our graph
     while len(unvisited) != 0:
         for neighbor in yardmap.list[current][2]:
             if (neighbor in unvisited):
