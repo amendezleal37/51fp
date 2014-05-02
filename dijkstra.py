@@ -49,5 +49,6 @@ while (end in unvisited):
             if (dist[neighbor]==-1) or (new_dist < dist[neighbor]):
                 dist[neighbor] = new_dist
                 prev[neighbor] = current
-    unvisited.remove(current)
+    if (current in unvisited):
+        unvisited.remove(current)
     current = map.list[current][2][0]
