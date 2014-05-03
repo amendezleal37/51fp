@@ -64,5 +64,3 @@ def dijkstra_path(start, end):
     path.append(start)
     path.reverse()
     return path
-
-dijkstra_path(16, 18)
