@@ -11,7 +11,6 @@ yard_map = yardgraphfull.graph
 nodes_list = yard_map.list
 
 vertices = [x[0] for x in nodes_list]
-position = [x[1] for x in nodes_list]
 edges = [x[2] for x in nodes_list]
 
 edge_list = []
@@ -56,7 +55,4 @@ def shortest_path(source, sink):
 		sink = prev_list[sink]
 	path.append(source)
 	path.reverse()
-	print path
-
-
-shortest_path(0, 21)
+	return path

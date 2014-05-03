@@ -15,8 +15,8 @@ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 # map = ListGraph()
 
 # map we are working with:
-import yardgraph
-yardmap = yardgraph.graph
+import yardgraphfull
+yardmap = yardgraphfull.graph
 
 def dijkstra(start):  
     # initializes unvisited to include all nodes
@@ -63,4 +63,4 @@ def dijkstra_path(start, end):
 		end = prev_list[end]
     path.append(start)
     path.reverse()
-    print path
+    return path
