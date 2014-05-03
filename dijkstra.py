@@ -15,8 +15,8 @@ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
 # map = ListGraph()
 
 # map we are working with:
-import yardgraphfull
-yardmap = yardgraphfull.graph
+import yardgraph
+yardmap = yardgraph.graph
 
 def dijkstra(start):  
     # initializes unvisited to include all nodes
