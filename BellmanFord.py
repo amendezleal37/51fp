@@ -56,7 +56,4 @@ def shortest_path(source, sink):
 		sink = prev_list[sink]
 	path.append(source)
 	path.reverse()
-	print path
-
-
-shortest_path(0, 21)
+	return path
