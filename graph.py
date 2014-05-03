@@ -98,16 +98,6 @@ class ListGraph:
         i,p,e = node
         self.list[ID] = i,p,new_es
 
-    def name_to_id(self,name):
-        for k in range(len(self.list)):
-            i,p,e,n=self.list[k]
-            if n==name:
-                return i
-
-    def id_to_name(self,id):
-        i,p,e,n=self.list[id]
-        return n
-
     # For test purposes. Will remove to maintain abstraction
     # barrier
     def r(self,ID):

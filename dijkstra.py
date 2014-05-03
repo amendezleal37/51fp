@@ -63,4 +63,4 @@ def dijkstra_path(start, end):
 		end = prev_list[end]
     path.append(start)
     path.reverse()
-    return path
+    print path
