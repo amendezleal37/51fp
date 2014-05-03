@@ -4,9 +4,8 @@
 from yardgraphfull import graph
 from BellmanFord import shortest_path
 from dijkstra import dijkstra_path
-from benchmark import benchmark
 from time import time
-
+from pathtime import walktime
 
 print "Please input your starting point"
 start = raw_input()
@@ -35,7 +34,7 @@ elif algorithm == "b" or "B":
 	print "\n"
 	t1 = time()
 
-print "Your algorithm ran in",t1-t0,"seconds\n"
+print "Your algorithm ran in",t1-t0,"seconds.\nIf you were to walk, this trip would take ~",walktime(graph,path_id),"minutes.\n"
 
 '''
 def test_path(algorithm):

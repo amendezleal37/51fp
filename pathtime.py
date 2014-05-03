@@ -22,4 +22,4 @@ def walktime(graph,idlist):
     dist_f*=25
     dist_m=dist_f/5280. # in miles
     time=(dist_m/3.1)*60 # in minutes
-    return round(time,2),round(dist_m,2)
+    return round(time,2)
